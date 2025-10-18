@@ -1,0 +1,359 @@
+:root {
+  --white: #ffffff;
+
+  --accent-600: #4863f7;
+  --accent-500: #7878d7;
+
+  --alert-600: #ff5c5c;
+  --alert-500: #81020267;
+
+  --gray-900: #0d0d0d;
+  --gray-800: #111111;
+  --gray-700: #1a1a1a;
+  --gray-200: #424242;
+  --gray-100: #737373;
+}
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* modificar o estilo da barra de rolagem */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--gray-100);
+}
+
+/* fonte */
+body,
+input,
+button {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--gray-900);
+  color: var(--white);
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 62px 124px;
+  gap: 32px;
+  overflow-y: scroll;
+}
+
+.main-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+.btn {
+  font-weight: 500;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* botão copiar */
+.btn-outline.btn {
+  background: transparent;
+  border: 3px solid var(--gray-100);
+  color: var(--white);
+  padding: 8px 16px;
+  transition: border-color 0.3s;
+}
+.btn-outline.btn:hover {
+  border-color: var(--accent-500);
+}
+
+/* botão salvar */
+.btn-primary.btn {
+  background: var(--accent-600);
+  color: var(--white);
+  border: none;
+  padding: 9px 21px;
+  transition: background 0.3s;
+}
+.btn-primary.btn:hover {
+  background: var(--accent-500);
+}
+
+.icon {
+  width: 35px;
+  height: 30px;
+}
+
+/* placeholder */
+.prompt-title {
+  font-size: 32px;
+  font-weight: 600;
+  outline: none;
+}
+
+.prompt-content {
+  font-size: 16px;
+  line-height: 32px;
+  outline: none;
+}
+
+.editable-wrapper {
+  position: relative;
+}
+
+.editable-wrapper::before {
+  content: attr(data-placeholder);
+  position: absolute;
+  color: var(--gray-100);
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Esconde o placeholder quando não está vazio */
+.editable-wrapper.is-empty::before {
+  opacity: 1;
+}
+
+#title-wrapper.is-empty {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--gray-100);
+}
+
+#content-wrapper.is-empty {
+  font-size: 16px;
+  color: var(--gray-200);
+  line-height: 32px;
+}
+
+/* side bar button */
+.icon-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.open-toggle {
+  position: absolute;
+  top: 62px;
+  left: 62px;
+  display: none;
+  z-index: 10;
+}
+
+/* Estilo quando a sidebar está fechada */
+.sidebar-closed .sidebar {
+  display: none;
+}
+
+.sidebar-closed .open-toggle {
+  display: block;
+}
+
+.sidebar {
+  width: 400px;
+  height: 100vh;
+  background-color: var(--gray-700);
+  border-right: 2px solid var(--gray-800);
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px;
+}
+
+.logo {
+  height: 35px;
+}
+
+/* Sidebar Content */
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 32px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  position: relative;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--gray-700);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  border: 2px solid var(--gray-200);
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.search:hover {
+  border-color: var(--accent-500);
+}
+
+.search .icon {
+  position: absolute;
+  width: 25px;
+  height: 20px;
+  padding-left: 7px;
+}
+
+.search input {
+  flex: 1;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--white);
+  font-size: 16px;
+  outline: none;
+  padding-left: 33px;
+}
+
+.btn-full {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Prompt List */
+.prompt-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.prompt-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 13px;
+}
+
+.prompt-item > div {
+  min-width: 0;
+}
+
+.prompt-item-title {
+  color: var(--white);
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 2;
+  font-weight: 500;
+}
+
+.prompt-item-description {
+  color: var(--gray-100);
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn-icon:hover {
+  background-color: var(--alert-500);
+}
+
+.icon-trash {
+  width: 22px;
+  height: 22px;
+}
+
+/* responsividade */
+@media (max-width: 950px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80%;
+    max-width: 300px;
+    z-index: 20;
+    transform: translateX(0);
+  }
+  .sidebar-closed .sidebar {
+    transform: translateX(-100%);
+    display: block;
+  }
+  .sidebar-closed .open-toggle {
+    display: block;
+    left: 24px;
+    top: 24px;
+  }
+  .open-toggle {
+    left: 24px;
+    top: 24px;
+  }
+
+  .main {
+    padding: 40px 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .main {
+    padding: 24px 8px;
+    gap: 18px;
+  }
+ 
+  .sidebar {
+    width: 50vw;
+    max-width: none;
+    padding: 0;
+  }
+  
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="icon" type="image/svg+xml" href="assets/assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <button class="icon-button open-toggle" id="btn-open">
+        <img src="assets/assets/open.svg" alt="abrir" class="icon" />
+      </button>
+      <aside class="sidebar">
+        <header class="sidebar-header">
+          <img src="assets/assets/logo.svg" alt="logo" class="logo" />
+          <button class="icon-button close-toggle" id="btn-collapse">
+            <img src="assets/assets/collapse.svg" alt="fechar" class="icon" />
+          </button>
+        </header>
+
+        <div class="sidebar-content">
+          <div class="search-container">
+            <div class="search">
+              <img
+                src="assets/assets/search-interface-symbol (1).png"
+                alt="Buscar"
+                class="icon search-icon"
+              />
+              <input
+                type="text"
+                class="search-input"
+                id="search-input"
+                placeholder="Buscar prompt por título"
+              />
+            </div>
+            <button class="btn-primary btn btn-full" id="btn-new">
+              Novo prompt
+            </button>
+          </div>
+
+          <ul class="prompt-list" id="prompt-list"></ul>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="main-header">
+          <button id="btn-copy" class="btn-outline btn">
+            <img src="assets/assets/copy.svg" alt="Copiar" class="icon" />
+            <span>Copiar</span>
+          </button>
+          <button id="btn-save" class="btn-primary btn">Salvar</button>
+        </header>
+        <div
+          data-placeholder="Título do prompt"
+          class="editable-wrapper is-empty"
+          id="title-wrapper"
+        >
+          <h1 class="prompt-title" id="title" contenteditable="true"></h1>
+        </div>
+
+        <div
+          data-placeholder="Descrição do prompt"
+          class="editable-wrapper is-empty"
+          id="content-wrapper"
+        >
+          <div
+            id="prompt-content"
+            class="prompt-content"
+            contenteditable="true"
+          ></div>
+        </div>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
